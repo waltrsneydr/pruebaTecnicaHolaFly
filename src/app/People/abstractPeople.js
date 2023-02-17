@@ -4,6 +4,7 @@ class AbstractPeople {
         if (this.constructor == AbstractPeople) {
             throw new Error("Abstract classes can't be instantiated.");
         }
+        this.id = id;
     }
 
     async init(){
@@ -37,4 +38,26 @@ class AbstractPeople {
     getWeightOnPlanet(planetId){
         throw new Error('To be implemented');
     }
+    
+    setName(name) {
+        this.name = name;
+    }
+
+    setMass(mass) {
+        this.mass = mass;
+    }
+
+    setHeight(height) {
+        this.height = height;
+    }
+
+    setHomeworldName(homeworldName) {
+        this.homeworldName = homeworldName;
+    }
+
+    setHomeworlId(homeworldId) {
+        this.homeworldId = homeworldId;
+    }
 }
+
+module.exports = AbstractPeople;

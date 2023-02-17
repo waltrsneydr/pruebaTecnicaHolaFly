@@ -10,7 +10,7 @@
     "sqlite3": "^5.0.8"
   },
   "name": "PruebaTecnicaHolafly",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Prueba Técnica de Holafly",
   "main": "index.js",
   "scripts": {

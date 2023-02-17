@@ -19,7 +19,25 @@ const genericRequest = async (url, method, body, logging = false) => {
     return data;
 }
 
+const genericResponseSwapiPeople = async (url) => {
+
+    const responsePeople = await fetch(url);
+    const dataPeople = await responsePeople.json();
+    let idPlanet = dataPeople.homeworld.replace('https://swapi.dev/api','');
+    const responsePlanet = await fetch(`https://swapi.dev/api${idPlanet}`);
+    const dataPlanet = await responsePlanet.json();
+    const jsonResponse = {
+        name: dataPeople.name,
+        mass: dataPeople.mass,
+        height: dataPeople.height,
+        homeworld_name: dataPlanet.name,
+        homeworld_id: idPlanet
+    };
+    return jsonResponse;
+}
+
 module.exports = {
     getWeightOnPlanet,
-    genericRequest
+    genericRequest,
+    genericResponseSwapiPeople
 }
