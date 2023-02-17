@@ -46,15 +46,12 @@ const applySwapiEndpoints = (server, app) => {
             dataPlanet = await app.swapiFunctions.genericResponseSwapiPlanet(`https://swapi.dev/api/planets/${planetId}`);
         }
 
-        console.log(dataPeople.homeworld_name,dataPlanet.name);
-
         if(dataPeople.homeworld_name === dataPlanet.name){
             return res.status(409).json({
                 msg : "Estas intentando calcular el peso del personaje en su pais natal"
             })
         }
         const calculoPG = app.swapiFunctions.getWeightOnPlanet(dataPeople.mass, dataPlanet.gravity)
-        console.log(calculoPG)
         if( calculoPG === 'gravity' ){
             return res.status(400).json({
                 msg : `La gravedad del planeta ${dataPlanet.name} es ${dataPlanet.gravity} no es posible realizar el calculo`

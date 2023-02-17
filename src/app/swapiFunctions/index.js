@@ -11,7 +11,6 @@ const getWeightOnPlanet = (mass, gravity) => {
         gravity = gravity.replace(/[^\d\.]/g, "")
     }
     mass = parseInt(mass)
-    console.log(mass,gravity)
     return mass * gravity;
 }
 
