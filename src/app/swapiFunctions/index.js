@@ -1,6 +1,17 @@
 const fetch = require('node-fetch');
 
 const getWeightOnPlanet = (mass, gravity) => {
+    if(mass === 'unknown'){
+        return 'mass'
+    }
+    if(gravity === 'unknown'){
+        return 'gravity'
+    }
+    if( isNaN(gravity) ){
+        gravity = gravity.replace(/[^\d\.]/g, "")
+    }
+    mass = parseInt(mass)
+    console.log(mass,gravity)
     return mass * gravity;
 }
 
