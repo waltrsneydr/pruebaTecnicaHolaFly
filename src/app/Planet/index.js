@@ -1,3 +1,9 @@
-const Planet = require('./Planet');
+const planetInst = require('./commonPlanet');
 
-module.exports = { Planet }
+const planetFactory = async( id ) =>{
+    planet = new  planetInst(id);
+    planet = await planet.init();
+    return planet;
+}
+
+module.exports = { planetFactory }

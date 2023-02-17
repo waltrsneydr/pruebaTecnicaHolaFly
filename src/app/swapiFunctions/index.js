@@ -36,8 +36,21 @@ const genericResponseSwapiPeople = async (url) => {
     return jsonResponse;
 }
 
+const genericResponseSwapiPlanet = async (url) => {
+
+    const response = await fetch(url);
+    const data = await response.json();
+    const jsonResponse = {
+        name: data.name,
+        gravity: data.gravity
+        
+    };
+    return jsonResponse;
+}
+
 module.exports = {
     getWeightOnPlanet,
     genericRequest,
-    genericResponseSwapiPeople
+    genericResponseSwapiPeople,
+    genericResponseSwapiPlanet
 }
